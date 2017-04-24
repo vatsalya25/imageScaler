@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Save Image Coordinates</title>
+    <link rel="stylesheet" type="text/css" href="./styles/index.css">
+  </head>
+  <body>
+    <div class="upload">
+      <input id="upload_file" type="file" class="upload_box" onchange="previewFile()">
+      <label for="upload_file" class="upload_file">Upload File</label>
+    </div>
+    <div class="uploaded hidden">
+      <img id="uploaded_image" onclick="calculateCoord(event)" src="" alt="">
+    </div>
+
+    <a id="download_file" class="download_file hidden" onclick="downloadFile()">Download File</a>
+
+    <div id="saved_plots" class="saved_plots">
+      <div class="plot_header">
+        <div class="title">Plot ID</div>
+        <div class="xValue">X Coordinate</div>
+        <div class="yValue">Y Coordinate</div>
+        <div class="delete_plot"></div>
+      </div>
+    </div>
+
+    <div class="modal_bg hidden">
+      <div class="modal">
+        <div class="modal_close" onclick="closeModal()">✖</div>
+        <div class="modal_coord">
+          <div class="axis">X: <span id="xValue" class="axis_value"></span></div>
+          <div class="axis">Y: <span id="yValue" class="axis_value"></span></div>
+        </div>
+        <div class="modal_plot">
+          <span>Plot Id: </span>
+          <select id="plot_select" class="plot_select" name="plot_select"></select>
+        </div>
+        <div class="modal_save" onclick="saveCoord()">Save</div>
+      </div>
+    </div>
+
+    <div class="modal_bg hidden">
+      <div class="modal">
+        <div class="modal_close" onclick="closeModal()">✖</div>
+        <div class="modal_content">The file is empty since no coordinates have been plotted</div>
+      </div>
+    </div>
+
+    <script src="./scripts/index.js"></script>
+  </body>
+</html>

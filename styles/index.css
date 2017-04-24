@@ -1,0 +1,169 @@
+body {
+  position: relative;
+  font-family: sans-serif;
+}
+
+body .upload .upload_box {
+  display: none;
+}
+
+body .download_file, body .upload .upload_file {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  width: 150px;
+  height: 30px;
+  background-color: #0d98e8;
+  color: #eee;
+  border-radius: 2px;
+  box-shadow: 0 3px 1px 0 #555;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s;
+}
+
+body .download_file:active, body .upload .upload_file:active {
+  box-shadow: 0 1px 1px 0 #555;
+  margin-top: 12px;
+}
+
+body .uploaded {
+  margin-top: 20px;
+}
+
+body .uploaded img {
+  height: 100%;
+  border: 2px solid #000;
+  cursor: crosshair;
+}
+
+body .hidden {
+  display: none;
+}
+
+body .modal_bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.7);
+}
+
+body .modal {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 350px;
+  border-radius: 5px;
+  background-color: #ddd;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  user-select: none;
+}
+
+body .modal .modal_close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+}
+
+body .modal .modal_coord {
+  margin: 40px 0 20px;
+  width: 40%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+
+body .modal .modal_coord .axis .axis_value {
+  margin-left: 10px;
+}
+
+body .modal .modal_content {
+  margin: 30px 0;
+  padding: 0 20px;
+}
+
+body .modal .modal_plot .plot_select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: 0 !important;
+  background: #fff url(./../assets/arrow_down.png) 90% center / 10px 7px no-repeat;
+  font-size: 14px;
+  height: 25px;
+  width: 70px;
+  border-radius: 2px;
+  padding: 0 5px;
+  margin: 0 10px;
+  box-shadow: 0 2px 1px 0 #555;
+  cursor: pointer;
+  outline: none;
+}
+
+body .modal .modal_plot .plot_select:active {
+  box-shadow: 0;
+  margin-top: 1px;
+}
+
+body .modal .modal_save {
+  margin: 25px 0;
+  width: 100px;
+  height: 30px;
+  background-color: #0d98e8;
+  color: #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2px;
+  box-shadow: 0 3px 1px 0 #555;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+body .modal .modal_save:active {
+  box-shadow: 0 1px 1px 0 #555;
+  margin-top: 27px;
+}
+
+body .saved_plots {
+  margin-top: 50px;
+  display: flex;
+  flex-flow: column nowrap;
+  width: 80vw;
+}
+
+body .saved_plots .plot_header {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+}
+
+body .saved_plots .plot_value {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+body .saved_plots .plot_value div, body .saved_plots .plot_header div {
+  flex: 0 0 25%;
+}
+
+body .saved_plots .plot_value .delete_plot {
+  background: url('./../assets/delete_icon.png') center / 20px no-repeat;
+  width: 30px;
+  height: 40px;
+  cursor: pointer;
+}
