@@ -3,7 +3,7 @@ let plotJson, fileName, pos_x, pos_y, selectedPlot;
 
 const oReq = new XMLHttpRequest();
 oReq.onload = reqListener;
-oReq.open("get", "./../inputs/plot_id.json", true);
+oReq.open("get", "./inputs/plot_id.json", true);
 oReq.send();
 
 function reqListener(e) {
