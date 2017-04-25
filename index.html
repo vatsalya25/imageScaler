@@ -11,12 +11,14 @@
       <label for="upload_file" class="upload_file">Upload File</label>
     </div>
     <div class="uploaded hidden">
-      <img id="uploaded_image" onclick="calculateCoord(event)" src="" alt="">
+      <img id="uploaded_image" class="uploaded_image" onclick="calculateCoord(event)" src="" alt="">
+      <div id="prev_marker" class="prev_marker hidden"></div>
+      <div id="curr_marker" class="curr_marker hidden"></div>
     </div>
 
-    <a id="download_file" class="download_file hidden" onclick="downloadFile()">Download File</a>
+    <a id="download_file" class="download_file hidden" onclick="downloadFile()">Download as JSON</a>
 
-    <div id="saved_plots" class="saved_plots">
+    <div id="saved_plots" class="saved_plots hidden">
       <div class="plot_header">
         <div class="title">Plot ID</div>
         <div class="xValue">X Coordinate</div>
@@ -26,23 +28,29 @@
     </div>
 
     <div class="modal_bg hidden">
-      <div class="modal">
-        <div class="modal_close" onclick="closeModal()">✖</div>
+      <div id="modal_save" class="modal">
+        <div id="modal_drag" class="modal_header">
+          <div class="modal_title">Drag from here</div>
+          <div class="modal_close" onclick="closeModal()">✖</div>
+        </div>
         <div class="modal_coord">
           <div class="axis">X: <span id="xValue" class="axis_value"></span></div>
           <div class="axis">Y: <span id="yValue" class="axis_value"></span></div>
         </div>
         <div class="modal_plot">
           <span>Plot Id: </span>
-          <select id="plot_select" class="plot_select" name="plot_select"></select>
+          <select id="plot_select" class="plot_select" name="plot_select" onchange="selectionChange()"></select>
         </div>
-        <div class="modal_save" onclick="saveCoord()">Save</div>
+        <div id="modal_warning" class="modal_warning hidden">This plot's coordinates have already been plotted</div>
+        <div id="modal_save_btn" class="modal_save_btn" onclick="saveCoord()">Save</div>
       </div>
     </div>
 
     <div class="modal_bg hidden">
       <div class="modal">
-        <div class="modal_close" onclick="closeModal()">✖</div>
+        <div class="modal_header">
+          <div class="modal_close" onclick="closeModal()">✖</div>
+        </div>
         <div class="modal_content">The file is empty since no coordinates have been plotted</div>
       </div>
     </div>

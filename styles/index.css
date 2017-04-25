@@ -12,8 +12,8 @@ body .download_file, body .upload .upload_file {
   justify-content: center;
   align-items: center;
   margin: 10px;
-  width: 150px;
-  height: 30px;
+  width: 180px;
+  height: 40px;
   background-color: #0d98e8;
   color: #eee;
   border-radius: 2px;
@@ -30,16 +30,25 @@ body .download_file:active, body .upload .upload_file:active {
 
 body .uploaded {
   margin-top: 20px;
+  position: relative;
 }
 
-body .uploaded img {
+body .uploaded .uploaded_image {
   height: 100%;
   border: 2px solid #000;
   cursor: crosshair;
 }
 
-body .hidden {
-  display: none;
+body .uploaded .prev_marker, body .uploaded .curr_marker {
+  position: absolute;
+  height: 40px;
+  width: 30px;
+  background: url(./../assets/map_pin_red.png) center / 40px no-repeat;
+  transform: translate(-45%, -100%);
+}
+
+body .uploaded .curr_marker {
+  background: url(./../assets/map_pin_green.png) center / 40px no-repeat;
 }
 
 body .modal_bg {
@@ -48,15 +57,15 @@ body .modal_bg {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0,0,0,0.7);
+  background-color: rgba(0,0,0,0.3);
 }
 
 body .modal {
-  position: absolute;
+  position: relative;
   top: 25%;
   left: 50%;
   transform: translateX(-50%);
-  width: 350px;
+  width: 450px;
   border-radius: 5px;
   background-color: #ddd;
   display: flex;
@@ -65,14 +74,33 @@ body .modal {
   user-select: none;
 }
 
-body .modal .modal_close {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 30px;
-  height: 30px;
+body .modal .modal_header {
+  color: rgba(255, 255, 255, 0.8);
+  position: relative;
   display: flex;
+  width: 100%;
+  height: 50px;
+  cursor: move;
+  background-color: rgba(0,0,0,0.5);
+  border-radius: 5px 5px 0 0;
+}
+
+body .modal .modal_header .modal_title {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
+body .modal .modal_header .modal_close {
+  position: absolute;
+  right: 0;
+  width: 50px;
+  height: 50px;
   cursor: pointer;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -115,10 +143,15 @@ body .modal .modal_plot .plot_select:active {
   margin-top: 1px;
 }
 
-body .modal .modal_save {
+body .modal .modal_warning {
+  font-size: 16px;
+  margin: 20px 0 0;
+}
+
+body .modal .modal_save_btn {
   margin: 25px 0;
-  width: 100px;
-  height: 30px;
+  width: 150px;
+  height: 40px;
   background-color: #0d98e8;
   color: #eee;
   display: flex;
@@ -130,7 +163,7 @@ body .modal .modal_save {
   transition: all 0.2s;
 }
 
-body .modal .modal_save:active {
+body .modal .modal_save_btn:active {
   box-shadow: 0 1px 1px 0 #555;
   margin-top: 27px;
 }
@@ -147,6 +180,7 @@ body .saved_plots .plot_header {
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
+  height: 40px;
   font-weight: bold;
 }
 
@@ -155,15 +189,31 @@ body .saved_plots .plot_value {
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
+  height: 40px;
+  cursor: pointer;
 }
 
 body .saved_plots .plot_value div, body .saved_plots .plot_header div {
   flex: 0 0 25%;
+  display: flex;
+  justify-content: center;
+}
+
+body .saved_plots .plot_value:nth-child(even) {
+  background-color: rgba(0,0,0,0.2);
+}
+
+body .saved_plots .plot_value:nth-child(odd) {
+  background-color: rgba(0,0,0,0.1);
 }
 
 body .saved_plots .plot_value .delete_plot {
   background: url('./../assets/delete_icon.png') center / 20px no-repeat;
   width: 30px;
-  height: 40px;
+  height: 100%;
   cursor: pointer;
+}
+
+body .hidden {
+  display: none;
 }
